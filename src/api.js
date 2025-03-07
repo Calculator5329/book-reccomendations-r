@@ -4,7 +4,7 @@ const API_BASE = "https://faiss-app-p2s3lyhluq-uc.a.run.app"; // Flask backend U
 
 export const getBooks = async () => {
   try {
-    const response = await fetch("/data/books.json"); // Load from local file
+    const response = await fetch("data/books.json"); // Load from local file
     const data = await response.json();
     return data;
   } catch (error) {
