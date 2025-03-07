@@ -34,21 +34,21 @@ This project is a Book Recommendation System that leverages OpenAI embeddings an
 ### Browsing Available Books
 Users can explore a selection of books available in the system. Each book card displays the **title, author, genre**, and includes a **"Like" button** to indicate preference.
 
-[image 1](https://github.com/Calculator5329/book-reccomendations-r/blob/ebb74ad35560478ba8f381075da48e8d478ce01f/bookr-1.jpg)
+![Browsing Books](https://raw.githubusercontent.com/Calculator5329/book-reccomendations-r/main/bookr-1.jpg)
 
 ---
 
 ### Viewing Book Details
 Clicking on a book reveals a **detailed description**, allowing users to learn more before deciding to like it.
 
-[image 2](https://github.com/Calculator5329/book-reccomendations-r/blob/ebb74ad35560478ba8f381075da48e8d478ce01f/bookr-2.jpg)
+![Book Details](https://raw.githubusercontent.com/Calculator5329/book-reccomendations-r/main/bookr-2.jpg)
 
 ---
 
 ### Generating Personalized Recommendations
 Once a user has liked books, they can click **"Calculate Recommendations"**, and the system will return a list of books similar to their preferences.
 
-[image 3](https://github.com/Calculator5329/book-reccomendations-r/blob/ebb74ad35560478ba8f381075da48e8d478ce01f/bookr-3.jpg)
+![Book Reccomendations](https://raw.githubusercontent.com/Calculator5329/book-reccomendations-r/main/bookr-3.jpg)
 
 ---
 
