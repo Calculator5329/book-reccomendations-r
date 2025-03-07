@@ -27,3 +27,34 @@ This project is a Book Recommendation System that leverages OpenAI embeddings an
    - Built a React application to provide an intuitive user interface.
    - Hosted the frontend on GitHub Pages for accessibility.
 
+---
+
+## Demo
+
+### Browsing Available Books
+Users can explore a selection of books available in the system. Each book card displays the **title, author, genre**, and includes a **"Like" button** to indicate preference.
+
+image 1
+
+---
+
+### Viewing Book Details
+Clicking on a book reveals a **detailed description**, allowing users to learn more before deciding to like it.
+
+image 2
+
+---
+
+### Generating Personalized Recommendations
+Once a user has liked books, they can click **"Calculate Recommendations"**, and the system will return a list of books similar to their preferences.
+
+image 3
+
+---
+
+## Acknowledgements
+
+- [OpenAI](https://openai.com/) for the embedding models.
+- [FAISS](https://github.com/facebookresearch/faiss) by Facebook AI Research for efficient similarity search.
+- [Create React App](https://create-react-app.dev/) for bootstrapping the React frontend.
+- [Flask](https://flask.palletsprojects.com/) for the lightweight WSGI web application framework.
