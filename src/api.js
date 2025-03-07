@@ -7,9 +7,6 @@ export const getBooks = async () => {
     const response = await axios.get(`${API_BASE}/books`);
     console.log("Fetched books data:", response.data); // Log response
     
-    // The issue is here - axios already parses JSON responses
-    // If the backend returns JSON string (which it does with json.dumps),
-    // we need to parse it if it's still a string
     let books = response.data;
     
     if (typeof books === 'string') {
@@ -22,7 +19,7 @@ export const getBooks = async () => {
     
     // Ensure we have an array
     if (Array.isArray(books)) {
-      return books;
+      return books.slice(0, 100);
     } else if (books && typeof books === 'object') {
       // If it's an object that might contain our array
       return Object.values(books);
