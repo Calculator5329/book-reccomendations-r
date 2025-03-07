@@ -33,7 +33,7 @@ const BookDetail = memo(({ book }) => {
       {/* Book Image and Info (Left) */}
       <div style={{ flexShrink: 0, textAlign: "center" }}>
         <LazyImage
-          src={book.image}
+          src={book.image ? book.image.replace("http://", "https://") : "fallback-image-url"}
           alt={book.Title}
           fallback="https://via.placeholder.com/150x200?text=No+Image"
           style={{
