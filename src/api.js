@@ -4,34 +4,15 @@ const API_BASE = "https://faiss-app-p2s3lyhluq-uc.a.run.app"; // Flask backend U
 
 export const getBooks = async () => {
   try {
-    const response = await axios.get(`${API_BASE}/books`);
-    console.log("Fetched books data:", response.data); // Log response
-    
-    let books = response.data;
-    
-    if (typeof books === 'string') {
-      try {
-        books = JSON.parse(books);
-      } catch (parseError) {
-        console.error("Error parsing books data:", parseError);
-      }
-    }
-    
-    // Ensure we have an array
-    if (Array.isArray(books)) {
-      return books.slice(0, 100);
-    } else if (books && typeof books === 'object') {
-      // If it's an object that might contain our array
-      return Object.values(books);
-    }
-    
-    // If all else fails, return empty array
-    return [];
+    const response = await fetch("./data/books.json"); // Load from local file
+    const data = await response.json();
+    return data;
   } catch (error) {
-    console.error("Error fetching books:", error);
-    return []; 
+    console.error("Error loading books.json:", error);
+    return [];
   }
 };
+
 
 export const getRecommendations = async (likedBooks) => {
     try {
