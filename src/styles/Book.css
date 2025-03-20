@@ -1,0 +1,61 @@
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  background-color: rgba(255, 245, 230, 0.8); /* Warm parchment tone */
+  backdrop-filter: blur(2px); /* Subtle glassy effect */
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
+}
+
+.book-card {
+  background: url("../textures/parchment.png");
+  background-size: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  padding: 15px;
+  width: 100%;
+  max-width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.book-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+.book-card img {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+}
+.book-header {
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 8px 15px;
+  background: linear-gradient(
+    to bottom,
+    rgba(129, 69, 19, 1),
+    rgba(101, 67, 33, 1)
+  ); /* Rich brown gradient */
+  color: #f5e3c3; /* Light parchment text */
+  border-radius: 8px;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  width: fit-content; /* Makes it only as wide as needed */
+  margin: 0 auto 10px auto; /* Centers it */
+  padding-left: 25px;
+  padding-right: 25px;
+}

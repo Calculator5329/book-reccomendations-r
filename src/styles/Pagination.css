@@ -1,0 +1,23 @@
+.pagination-text {
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 60px;
+  padding: 8px 15px;
+  background: linear-gradient(
+    to bottom,
+    rgba(60, 40, 20, 1),
+    rgba(30, 20, 10, 1)
+  ); /* Subtle dark gradient */
+  color: #f7e6c4; /* Warm parchment-like text */
+  font-size: 12px;
+  font-weight: bold;
+  font-family: "Georgia", serif; /* Classic book-style font */
+  letter-spacing: 1px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}

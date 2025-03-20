@@ -1,39 +1,32 @@
 import React, { memo, useState } from "react";
 import LazyImage from "./LazyImage";
+import "../styles/BookDetail.css";
 
 const truncateText = (text, maxLength = 25) => {
-    if (!text) return "Untitled";
-    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
-  };
+  if (!text) return "Untitled";
+  return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+};
 
 const BookDetail = memo(({ book }) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   // Truncate description if it's too long
-  const maxDescriptionLength = 1000; // Adjust this for desired cutoff length
+  const maxDescriptionLength = 1250;
   const truncatedDescription =
     book.description && book.description.length > maxDescriptionLength
       ? book.description.slice(0, maxDescriptionLength) + "..."
       : book.description;
 
   return (
-    <div
-      style={{
-        marginTop: "20px",
-        padding: "10px",
-        border: "1px solid black",
-        borderRadius: "5px",
-        backgroundColor: "#fff",
-        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-        display: "flex",
-        gap: "15px",
-        alignItems: "flex-start",
-      }}
-    >
+    <div className="book-detail">
       {/* Book Image and Info (Left) */}
       <div style={{ flexShrink: 0, textAlign: "center" }}>
         <LazyImage
-          src={book.image ? book.image.replace("http://", "https://") : "fallback-image-url"}
+          src={
+            book.image
+              ? book.image.replace("http://", "https://")
+              : "fallback-image-url"
+          }
           alt={book.Title}
           fallback="https://via.placeholder.com/150x200?text=No+Image"
           style={{
@@ -43,18 +36,41 @@ const BookDetail = memo(({ book }) => {
             borderRadius: "5px",
           }}
         />
-        <p style={{ margin: "10px 0 5px", fontSize: "14px" }}>
-          <strong>Author:</strong>{truncateText(book.authors, 20) || "Unknown"}
+        <p
+          style={{
+            margin: "10px 0 5px",
+            fontSize: "14px",
+            textAlign: "left",
+          }}
+        >
+          <strong>Author:</strong>
+          {truncateText(book.authors, 20) || "Unknown"}
         </p>
-        <p style={{ margin: "10px 0 5px", fontSize: "14px" }}>
-          <strong>Categories:</strong> {truncateText(book.categories, 20) || "Unknown"}
+        <p
+          style={{
+            margin: "10px 0 5px",
+            fontSize: "14px",
+            textAlign: "left",
+          }}
+        >
+          <strong>Categories:</strong>{" "}
+          {truncateText(book.categories, 20) || "Unknown"}
         </p>
       </div>
 
       {/* Book Description (Right) */}
       <div style={{ flex: 1 }}>
-        <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>{book.Title || "Untitled Book"}</h2>
-        <p style={{ fontSize: "14px", lineHeight: "1.4", color: "#333", marginBottom: "5px" }}>
+        <h2 style={{ fontSize: "20px", marginBottom: "10px" }}>
+          {book.Title || "Untitled Book"}
+        </h2>
+        <p
+          style={{
+            fontSize: "14px",
+            lineHeight: "1.4",
+            color: "#333",
+            marginBottom: "5px",
+          }}
+        >
           <strong>Description:</strong>{" "}
           {showFullDescription ? book.description : truncatedDescription}
         </p>

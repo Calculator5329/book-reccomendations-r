@@ -2,7 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://calculator5329.github.io/book-reccomendations-r/",
+  "homepage": "calculator5329.github.io/book-reccomendations-r",
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
