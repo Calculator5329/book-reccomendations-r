@@ -132,8 +132,8 @@ function App() {
           fontSize: "26px",
           fontWeight: "bold",
           background:
-            "linear-gradient(to bottom, rgba(120, 85, 30, 1),rgba(70, 45, 0, 1))",
-          color: "#fff",
+            "linear-gradient(to bottom,rgba(0, 0, 0, 1), rgba(50, 50, 50, 1))",
+          color: "#ffefd5",
           borderRadius: "8px",
           boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
           letterSpacing: "1px",
@@ -142,16 +142,24 @@ function App() {
         📚 Book Recommendation App
       </header>
       {/* Top Section: Book Details & Liked Books */}
-      <div style={{ display: "flex", gap: "20px", marginBottom: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          gap: "20px",
+          marginBottom: "20px",
+        }}
+      >
         {/* Book Details */}
         <div
           style={{
             flex: 2,
             padding: "15px",
             borderRadius: "5px",
-            backgroundColor: "rgba(255, 245, 230, 1)",
             boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
             maxWidth: "1200px",
+            background:
+              "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(30, 30, 30, 1))",
+            color: "#f9e9c9",
           }}
         >
           {selectedBook ? (
@@ -168,8 +176,10 @@ function App() {
             padding: "15px",
             borderRadius: "5px",
             maxWidth: "350px",
-            backgroundColor: "rgba(255, 245, 230, 1)",
+            background:
+              "linear-gradient(to bottom,rgba(0, 0, 0, 1),  rgba(30, 30, 30, 1))",
             boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+            color: "#f9e9c9",
           }}
         >
           <div
@@ -189,12 +199,12 @@ function App() {
               style={{
                 padding: "8px 12px",
                 fontSize: "14px",
-                backgroundColor: "#28a745",
-                color: "white",
-                border: "none",
+                backgroundColor: "rgba(0, 0, 0, 1)",
+                color: "#f9e9c9",
+                border: "#f9e9c966 2px solid",
                 borderRadius: "4px",
                 cursor: likedBooks.length === 0 ? "not-allowed" : "pointer",
-                opacity: likedBooks.length === 0 ? 0.7 : 1,
+                opacity: likedBooks.length === 0 ? 0.8 : 1,
               }}
             >
               {loadingRecommendations ? "Loading..." : "Get Recommendations"}
@@ -221,7 +231,6 @@ function App() {
       </div>
       {/* Books Section */}
       <h2 className="book-header">Books</h2>
-      // For Books Section
       <BookList
         books={books}
         currentRow={currentRow}

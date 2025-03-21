@@ -32,8 +32,8 @@ code {
   cursor: pointer;
   border: 1px solid rgba(0, 0, 0, 0.1); /* Subtle border */
   border-radius: 5px;
-  background-color: rgba(255, 245, 230, 0.7); /* Semi-transparent white */
-  color: #333;
+  background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent white */
+  color: #cccccc;
   z-index: 10;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -47,12 +47,12 @@ code {
 }
 
 .carousel-button:hover {
-  background-color: rgba(255, 245, 230, 0.9);
+  background-color: rgba(155, 145, 130, 0.6);
   border-color: rgba(0, 0, 0, 0.2);
 }
 
 .carousel-button:disabled {
-  background-color: rgba(220, 210, 195, 0.6);
+  background-color: rgba(220, 210, 195, 0.65);
   color: #999;
   border-color: rgba(0, 0, 0, 0.25);
   cursor: not-allowed;

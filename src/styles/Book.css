@@ -4,7 +4,12 @@
   gap: 20px;
   justify-content: center;
   padding: 20px;
-  background-color: rgba(255, 245, 230, 0.8); /* Warm parchment tone */
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 1),
+    rgba(60, 60, 60, 1),
+    rgba(10, 10, 10, 1)
+  ); /* Warm parchment tone */
   backdrop-filter: blur(2px); /* Subtle glassy effect */
   border-radius: 12px;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* Soft shadow for depth */
@@ -45,8 +50,8 @@
   padding: 8px 15px;
   background: linear-gradient(
     to bottom,
-    rgba(129, 69, 19, 1),
-    rgba(101, 67, 33, 1)
+    rgba(0, 0, 0, 1),
+    rgba(50, 50, 50, 1)
   ); /* Rich brown gradient */
   color: #f5e3c3; /* Light parchment text */
   border-radius: 8px;
