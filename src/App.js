@@ -118,10 +118,7 @@ function App() {
   return (
     <div
       style={{
-        padding: "20px",
         fontFamily: "Arial, sans-serif",
-        maxWidth: "1600px",
-        margin: "0 auto",
       }}
     >
       <div className="top-bar">
@@ -141,125 +138,127 @@ function App() {
         {/* Add this empty div as a spacer */}
         <div className="top-bar-spacer"></div>
       </div>
-      {/* Top Section: Book Details & Liked Books */}
-      <div
-        style={{
-          display: "flex",
-          gap: "20px",
-          marginBottom: "20px",
-        }}
-      >
-        {/* Book Details */}
+      <div className="main-content">
+        {/* Top Section: Book Details & Liked Books */}
         <div
           style={{
-            flex: 2,
-            padding: "15px",
-            borderRadius: "5px",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-            maxWidth: "1200px",
-            background:
-              "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(30, 30, 30, 1))",
-            color: "#f9e9c9",
+            display: "flex",
+            gap: "20px",
+            marginBottom: "20px",
           }}
         >
-          {selectedBook ? (
-            <BookDetail book={selectedBook} />
-          ) : (
-            <p>Select a book to see details.</p>
-          )}
-        </div>
-
-        {/* Liked Books */}
-        <div
-          style={{
-            flex: 1,
-            padding: "15px",
-            borderRadius: "5px",
-            maxWidth: "350px",
-            background:
-              "linear-gradient(to bottom,rgba(0, 0, 0, 1),  rgba(30, 30, 30, 1))",
-            boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-            color: "#f9e9c9",
-          }}
-        >
+          {/* Book Details */}
           <div
             style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              marginBottom: "10px",
+              flex: 2,
+              padding: "15px",
+              borderRadius: "5px",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+              maxWidth: "1200px",
+              background:
+                "linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(30, 30, 30, 1))",
+              color: "#f9e9c9",
             }}
           >
-            <h2 style={{ margin: 0 }}>Liked Books</h2>
-
-            {/* Calculate Recommendations Button */}
-            <button
-              onClick={fetchRecommendations}
-              disabled={loadingRecommendations || likedBooks.length === 0}
-              style={{
-                padding: "8px 12px",
-                fontSize: "14px",
-                backgroundColor: "rgba(0, 0, 0, 1)",
-                color: "#f9e9c9",
-                border: "#f9e9c966 2px solid",
-                borderRadius: "4px",
-                cursor: likedBooks.length === 0 ? "not-allowed" : "pointer",
-                opacity: likedBooks.length === 0 ? 0.8 : 1,
-              }}
-            >
-              {loadingRecommendations ? "Loading..." : "Get Recommendations"}
-            </button>
+            {selectedBook ? (
+              <BookDetail book={selectedBook} />
+            ) : (
+              <p>Select a book to see details.</p>
+            )}
           </div>
 
-          {likedBooks.length > 0 ? (
-            <div style={{ maxHeight: "300px", overflowY: "auto" }}>
-              <ul style={{ padding: 0, listStyleType: "none" }}>
-                {likedBooks.map((title, index) => (
-                  <li
-                    key={index}
-                    style={{ marginBottom: "5px", fontSize: "14px" }}
-                  >
-                    {truncateText(title, 50)}
-                  </li>
-                ))}
-              </ul>
+          {/* Liked Books */}
+          <div
+            style={{
+              flex: 1,
+              padding: "15px",
+              borderRadius: "5px",
+              maxWidth: "350px",
+              background:
+                "linear-gradient(to bottom,rgba(0, 0, 0, 1),  rgba(30, 30, 30, 1))",
+              boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
+              color: "#f9e9c9",
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                marginBottom: "10px",
+              }}
+            >
+              <h2 style={{ margin: 0 }}>Liked Books</h2>
+
+              {/* Calculate Recommendations Button */}
+              <button
+                onClick={fetchRecommendations}
+                disabled={loadingRecommendations || likedBooks.length === 0}
+                style={{
+                  padding: "8px 12px",
+                  fontSize: "14px",
+                  backgroundColor: "rgba(0, 0, 0, 1)",
+                  color: "#f9e9c9",
+                  border: "#f9e9c966 2px solid",
+                  borderRadius: "4px",
+                  cursor: likedBooks.length === 0 ? "not-allowed" : "pointer",
+                  opacity: likedBooks.length === 0 ? 0.8 : 1,
+                }}
+              >
+                {loadingRecommendations ? "Loading..." : "Get Recommendations"}
+              </button>
             </div>
-          ) : (
-            <p>No books liked yet.</p>
-          )}
+
+            {likedBooks.length > 0 ? (
+              <div style={{ maxHeight: "300px", overflowY: "auto" }}>
+                <ul style={{ padding: 0, listStyleType: "none" }}>
+                  {likedBooks.map((title, index) => (
+                    <li
+                      key={index}
+                      style={{ marginBottom: "5px", fontSize: "14px" }}
+                    >
+                      {truncateText(title, 50)}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <p>No books liked yet.</p>
+            )}
+          </div>
         </div>
+        {/* Books Section */}
+        <h2 className="book-header">Books</h2>
+        <BookList
+          books={books}
+          currentRow={currentRow}
+          totalRows={totalBookRows}
+          goToPrevRow={goToPrevRow}
+          goToNextRow={goToNextRow}
+          listType="book"
+          likedBooks={likedBooks}
+          toggleLike={toggleLike}
+          selectBook={debouncedSelectBook}
+          booksPerRow={booksPerRow}
+        />
+        {recommendations.length > 0 && (
+          <>
+            <h2 className="book-header">Recommendations For You</h2>
+            <BookList
+              books={recommendations}
+              currentRow={currentRecommendationRow}
+              totalRows={totalRecommendationRows}
+              goToPrevRow={goToPrevRecommendationRow}
+              goToNextRow={goToNextRecommendationRow}
+              listType="recommendation"
+              likedBooks={likedBooks}
+              toggleLike={toggleLike}
+              selectBook={debouncedSelectBook}
+              booksPerRow={booksPerRow}
+            />
+          </>
+        )}
       </div>
-      {/* Books Section */}
-      <h2 className="book-header">Books</h2>
-      <BookList
-        books={books}
-        currentRow={currentRow}
-        totalRows={totalBookRows}
-        goToPrevRow={goToPrevRow}
-        goToNextRow={goToNextRow}
-        listType="book"
-        likedBooks={likedBooks}
-        toggleLike={toggleLike}
-        selectBook={debouncedSelectBook}
-        booksPerRow={booksPerRow}
-      />
-      {recommendations.length > 0 && (
-        <>
-          <h2 className="book-header">Recommendations For You</h2>
-          <BookList
-            books={recommendations}
-            currentRow={currentRecommendationRow}
-            totalRows={totalRecommendationRows}
-            goToPrevRow={goToPrevRecommendationRow}
-            goToNextRow={goToNextRecommendationRow}
-            listType="recommendation"
-            likedBooks={likedBooks}
-            toggleLike={toggleLike}
-            selectBook={debouncedSelectBook}
-            booksPerRow={booksPerRow}
-          />
-        </>
-      )}
     </div>
   );
 }

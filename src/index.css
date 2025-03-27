@@ -83,24 +83,32 @@ code {
   /* Hide the text arrow */
   display: none;
 }
+
 .top-bar {
+  background: transparent; /* ✅ remove quotes */
+  margin: 0 auto;
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
   display: flex;
   align-items: center;
-  /* Reduce left/right padding significantly to hug edges */
-  padding: 10px 5px; /* e.g., 5px padding on left/right */
-  position: relative;
-  margin-bottom: 20px;
+  gap: 0.5rem;
+  padding: 10px;
+  z-index: 1; /* optional, ensures it’s above the background */
+  position: relative; /* optional, lets you layer stuff if needed */
 }
 
 /* Make avatar larger and adjust margin */
 .avatar-link {
   display: block;
-  width: 48px; /* INCREASED SIZE */
-  height: 48px; /* INCREASED SIZE */
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
+  top: 50%;
   flex-shrink: 0; /* Prevent shrinking */
-  margin-right: 15px; /* Keep or adjust space between avatar and header */
-  transition: transform 0.3s ease;
+  margin-right: 15px;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInAvatar 0.6s ease-out both;
 }
 
 .avatar-link:hover {
@@ -114,8 +122,9 @@ code {
   border-radius: 50%;
   overflow: hidden;
   /* Adjusted border or remove if not desired */
-  border: 2px solid rgba(255, 239, 213, 0.7); /* Example: PapayaWhip-like border */
+  border: 2px solid #2563eb; /* Example: PapayaWhip-like border */
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); /* Optional shadow */
+  margin-left: 0.25rem;
 }
 
 .profile-avatar img {
@@ -153,4 +162,24 @@ code {
   margin-left: 15px; /* SAME value as avatar-link's margin-right */
   flex-shrink: 0; /* Prevent shrinking */
   /* This div is intentionally empty */
+}
+
+.main-content {
+  max-width: 83.33vw; /* Use viewport width for better consistency */
+  margin: 20px auto 0 auto; /* Add top margin, auto left/right for centering */
+  padding: 0 20px 20px 20px; /* Add padding inside the container */
+  /* background-color: rgba(255, 0, 0, 0.2); /* Optional: Add for debugging */
+}
+
+@keyframes fadeInAvatar {
+  from {
+    opacity: 0;
+    /* Using scale directly, assuming flexbox handles vertical centering */
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    /* End at normal scale */
+    transform: scale(1);
+  }
 }
