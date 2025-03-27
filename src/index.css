@@ -83,3 +83,74 @@ code {
   /* Hide the text arrow */
   display: none;
 }
+.top-bar {
+  display: flex;
+  align-items: center;
+  /* Reduce left/right padding significantly to hug edges */
+  padding: 10px 5px; /* e.g., 5px padding on left/right */
+  position: relative;
+  margin-bottom: 20px;
+}
+
+/* Make avatar larger and adjust margin */
+.avatar-link {
+  display: block;
+  width: 48px; /* INCREASED SIZE */
+  height: 48px; /* INCREASED SIZE */
+  border-radius: 50%;
+  flex-shrink: 0; /* Prevent shrinking */
+  margin-right: 15px; /* Keep or adjust space between avatar and header */
+  transition: transform 0.3s ease;
+}
+
+.avatar-link:hover {
+  transform: scale(1.1);
+}
+
+/* Ensure profile-avatar fills the new link size */
+.profile-avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  /* Adjusted border or remove if not desired */
+  border: 2px solid rgba(255, 239, 213, 0.7); /* Example: PapayaWhip-like border */
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5); /* Optional shadow */
+}
+
+.profile-avatar img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Header takes space between avatar and spacer */
+.app-header {
+  /* REMOVE flex-grow: 1; */ /* Stop it from expanding automatically */
+  margin-left: auto; /* Add auto margin to push it from the left */
+  margin-right: auto; /* Add auto margin to push it from the right */
+  /* This combination centers the element in the available space */
+
+  max-width: 70%; /* Optional: Limit how wide it can get, adjust % as needed */
+  /* Or use a fixed value like max-width: 700px; */
+
+  /* Keep the rest of the styles */
+  text-align: center;
+  padding: 15px 25px; /* Added some horizontal padding back for internal spacing */
+  font-size: 26px;
+  font-weight: bold;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(50, 50, 50, 1));
+  color: #ffefd5;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  letter-spacing: 1px;
+}
+
+/* Define the spacer to mirror the avatar's space */
+.top-bar-spacer {
+  width: 48px; /* SAME width as avatar-link */
+  margin-left: 15px; /* SAME value as avatar-link's margin-right */
+  flex-shrink: 0; /* Prevent shrinking */
+  /* This div is intentionally empty */
+}

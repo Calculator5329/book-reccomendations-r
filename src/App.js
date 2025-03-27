@@ -4,6 +4,7 @@ import BookDetail from "./components/BookDetail";
 import { debounce } from "lodash";
 import BookList from "./components/BookList";
 import "./styles/Book.css";
+import profilePic from "./profile.png";
 
 function App() {
   const [books, setBooks] = useState([]);
@@ -123,24 +124,23 @@ function App() {
         margin: "0 auto",
       }}
     >
-      {/* Updated Header */}
-      <header
-        style={{
-          textAlign: "center",
-          marginBottom: "20px",
-          padding: "15px",
-          fontSize: "26px",
-          fontWeight: "bold",
-          background:
-            "linear-gradient(to bottom,rgba(0, 0, 0, 1), rgba(50, 50, 50, 1))",
-          color: "#ffefd5",
-          borderRadius: "8px",
-          boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-          letterSpacing: "1px",
-        }}
-      >
-        📚 Book Recommendation App
-      </header>
+      <div className="top-bar">
+        {" "}
+        {/* Flex container */}
+        <a
+          href="https://Calculator5329.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="avatar-link"
+        >
+          <div className="profile-avatar">
+            <img src={profilePic} alt="Me" />
+          </div>
+        </a>
+        <header className="app-header">📚 Book Recommendation App</header>
+        {/* Add this empty div as a spacer */}
+        <div className="top-bar-spacer"></div>
+      </div>
       {/* Top Section: Book Details & Liked Books */}
       <div
         style={{
